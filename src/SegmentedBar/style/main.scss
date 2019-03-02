@@ -1,0 +1,9 @@
+rect.segment{
+    opacity: 0.9;
+}
+
+.x-axis-group path,
+.x-axis-group line{
+    stroke-dasharray: 2;
+    color: #222;
+}

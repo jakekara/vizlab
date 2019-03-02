@@ -1,0 +1,12 @@
+{
+"title":"Example",
+"segments":["allowed","exception1","exception2","exception3"],
+"colors":["#ddd","lightsalmon","lightcoral","#222"],
+"margin":{
+    "top":20,
+    "left":80,
+    "right":10,
+    "bottom":20
+},
+"axisPadding":0.1
+}
