@@ -1,7 +1,20 @@
 {
 "title":"Example",
+"explainer": "This chart shows pretty much nothing.",
+"byline":"Jake Kara/CT Mirror",
+"sourceline":"Source: Dept. of Public Health",
+"labelColumn":"name",
 "segments":["allowed","exception1","exception2","exception3"],
 "colors":["#ddd","lightsalmon","lightcoral","#222"],
+"columnOptions":{
+    "allowed":{ "color": "#ddd"},
+    "exception1": {"color":"lightsalmon"},
+    "exception2":{"color":"lightcoral"},
+    "exception3":{"color":"#222"}
+},
+"xFormat":"0,0.0",
+"valuePrefix":"",
+"valueSuffix":" million",
 "margin":{
     "top":20,
     "left":80,

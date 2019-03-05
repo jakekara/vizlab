@@ -37,6 +37,9 @@ export default class Legend{
         var itemWidgents = items
         .append("div")
         .classed("item-widget", true)
+        .style("background-color", function(d){
+            return d.color || "black"
+        })
 
         var itemLabels = items
         .append("div")

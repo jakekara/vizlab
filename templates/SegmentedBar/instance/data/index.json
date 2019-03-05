@@ -1,12 +1,12 @@
 [{
-    "label":"Herbst",
+    "name":"Herbst",
     "allowed":60,
-    "exception1":25,
+    "exception1":25.12,
     "exception2":10
 },
 {
-    "label":"Boucher",
+    "name":"Boucher",
     "allowed":60,
-    "exception1":3,
-    "exception2":1
+    "exception1":30,
+    "exception2":14
 }]

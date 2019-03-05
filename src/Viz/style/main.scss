@@ -1,18 +1,37 @@
 //@import url('https://fonts.googleapis.com/css?family=Karla:400,700');
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700|Ubuntu+Mono');
 body{
+    margin: 0px;
+    padding: 0px;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
     font-family: 'Karla', sans-serif;
 }
 
 .title {
-    font-weight: 700px;
+    font-weight: 700;
     font-size: 24px;
 }
 
 .mono {
     font-family: 'Ubuntu Mono', monospace;
 }
-¯
-.explainer {
+
+.byline, .sourceline, .explainer{
     color: gray;
+}
+
+.byline, .sourceline{
+    font-size: 12px;
+}
+
+.byline{
+    text-align: right;
+}
+
+#root{
+    margin-right: 2px;
+    margin-left: 2px;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }

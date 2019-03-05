@@ -1,9 +1,46 @@
 rect.segment{
-    opacity: 0.9;
+    fill-opacity: 0.9;
+    cursor: pointer;
+}
+
+rect.segment:hover{
+    opacity: 0.8;
 }
 
 .x-axis-group path,
 .x-axis-group line{
     stroke-dasharray: 2;
     color: #222;
+}
+
+svg {
+}
+
+.caption {
+    font-size: 12px;
+    text-align: center;
+}
+
+.explainer { 
+    margin-bottom: 8px;
+}
+
+.legend-container{
+    display: flex;
+    justify-content: space-around;
+    min-width: 25%;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+
+.legend-item {
+    font-size: 12px;
+    color: gray;
+}
+
+.legend-container .item-widget{
+    width: 15px;
+    height: 15px;
+    margin: 2px;
+    box-sizing: border-box;
 }
