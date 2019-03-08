@@ -15,7 +15,7 @@ export default function(config){
     height = width / 1.65,
     outlineFilter = config.outlineFilter || function(){ return true };
 
-    var svg = d3.select("#root").append("svg")
+    var svg = root.append("svg")
     .attr("width", width)
     .attr("height", height);
     
@@ -42,5 +42,5 @@ export default function(config){
         .classed("state", true)
         .attr("d", path(topojson.merge(connTowns, connTowns.objects.towns.geometries.filter(outlineFilter))));
 
-    
+    return { towns, state}
 }

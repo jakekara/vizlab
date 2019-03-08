@@ -12,9 +12,14 @@ class ConnTownMap extends ThrottledViz {
     }
 
     draw(){
+        console.log("Drawing ConnTownMap");
         var config = this.config;
         config.root = config.root || "#root";
-        drawMap(this.config)
+        var {towns, state} = drawMap(this.config);
+        this.towns = towns;
+        this.state = state;
+        (this.config.drawCallback || function(){})();
+
     }
 
     // draw(){

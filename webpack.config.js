@@ -4,6 +4,7 @@ module.exports = {
   entry: {
     "SegmentedBar": "./src/SegmentedBar/index.js",
     "ConnTownMap": "./src/ConnTownMap/index.js",
+    "ConnHousingOptions":"./src/ConnHousingOptions/index.js"
   },
   output: {
     path: path.resolve("templates"),

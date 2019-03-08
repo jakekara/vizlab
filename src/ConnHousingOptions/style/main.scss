@@ -1,0 +1,31 @@
+.town.can-afford{
+    fill: lightblue;
+}
+
+path.town {
+    stroke-width: 0;
+    fill: white;
+
+    cursor: pointer;
+    -webkit-transition: fill 0.5s; /* Safari */
+    transition: fill 0.5s;
+
+}
+
+path.state {
+    stroke: black;
+    stroke-width: 1;
+    fill-opacity: 0.0;  
+    pointer-events: none;
+}
+
+path.town:hover{
+    fill: gray;
+}
+
+input[type="range"]{
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
