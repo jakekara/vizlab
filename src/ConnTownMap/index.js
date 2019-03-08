@@ -13,7 +13,7 @@ class ConnTownMap extends ThrottledViz {
 
     draw(){
         var config = this.config;
-        config.root = "#root"
+        config.root = config.root || "#root";
         drawMap(this.config)
     }
 
