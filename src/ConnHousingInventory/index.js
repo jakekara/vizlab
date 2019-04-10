@@ -12,6 +12,8 @@ import ThrottledViz from "../ThrottledViz";
 import "./style/main.scss";
 import { Slider } from "../Inputs";
 var inventoryData = require("./data/timetable-Percentage.json");
+var scoreData = require("./data/district-scores-2017.json");
+
 
 import * as d3 from "d3";
 
@@ -34,6 +36,10 @@ class ConnHousingInventory extends ThrottledViz {
         this.updateSchoolCutoff();
     } 
 
+    /**
+     * updateYear - update the year, and color the towns accordingly
+     * @param {*} year 
+     */
     updateYear(year) {
         this.year = Number(year) || this.year || 1992;
 
@@ -43,7 +49,7 @@ class ConnHousingInventory extends ThrottledViz {
 
         var y = this.year;
 
-        d3.selectAll("path.town").style("fill", function (d) {
+        d3.selectAll("path.town").style("fill", function () {
             try { 
                 var townName = d3.select(this).attr("data-place"),
                 pct = inventoryData[townName][String(y)];
@@ -53,7 +59,6 @@ class ConnHousingInventory extends ThrottledViz {
                 if (pct > 100) pct = pct / 100;
 
                 var ret = color(pct) || "white"; 
-                console.log(townName, pct, ret, color());
                 return ret;
             } catch { return "white" }
             
@@ -61,9 +66,41 @@ class ConnHousingInventory extends ThrottledViz {
 
     }
 
+        /**
+     * updateSchoolCutoff - update the school score cutoff 
+     *   and outline towns based on whether they fall within
+     *   the cutoff
+     * @param {*} score 
+     */
     updateSchoolCutoff(score) {
-        // this.income = Number(income || this.income);
-        // this.updateRent((this.income * 0.3) / 12);
+
+
+        this.score = Number(score) || this.score || 70;
+
+        var cutoff = this.score;
+
+        // // replace this with a function to actually fetch the right data
+        // DONE SEE BELOW
+        // function fetchRandomScore(district){
+        //     return district.length * 5;
+        // }
+
+        function fetch2017Score(district){
+            try { 
+                return scoreData[district] || 0;
+            } catch { return 0 }
+        }
+        
+        function setOutlined(){
+            var score = fetch2017Score(d3.select(this).attr("data-place"));
+            var ret = score >= cutoff;
+            return ret;
+        }
+
+        d3.selectAll(".elem-district").classed("outlined", setOutlined);
+        d3.selectAll(".unified-district").classed("outlined", setOutlined);
+        d3.selectAll(".secondary-district").classed("outlined", setOutlined);
+
     }
 
     draw() {
@@ -103,7 +140,7 @@ class ConnHousingInventory extends ThrottledViz {
             root: "score-input-area",
             min: 0,
             step: 5,
-            value: this.schoolScore || 80,
+            value: this.schoolScore || 70,
             max: 100,
             callback: this.updateSchoolCutoff
         })
