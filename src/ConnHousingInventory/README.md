@@ -11,6 +11,17 @@ finish it, in addition to design improvements -- such as selecting, adding
 and cleaning the data more completely. Make sure you read the TODO section 
 below.
 
+# Design consideration
+
+The decision to shade towns based on housing inventory and outline towns based
+on quality of life indicator(s) was meant to show whether these things were 
+"lining up." However there are significant design challenges with outlining. 
+For instance, if you outline all of towns that border one town that is not 
+outlined, it will be outlined by all of the shared borders. One possible 
+solution might be to use categorical shading for towns with or above or below
+the 10% Affordable Housing threshold and at or below the quality of life
+threshold.
+
 ### Building the code
 
 The code for this map is contained in this repository in the 
@@ -34,6 +45,13 @@ this project. For instance, all of these graphics inherit from Viz or
 ThrottledViz classes, which handle some boilerplate stuff. The difference 
 between Viz and ThrottledViz is that ThrottledViz automatically calls its 
 draw() function when the viewport size changes.
+
+### Topojson layer details
+
+This map has four five shape layers. One for CT towns (county subdivisions) and
+three for school districts (elemntary, secondary and unified), as well as one 
+for the outline of the state. These files are from the Census Bureau, converted
+to topojson using mapshaper.
 
 ### TODO (!Important)
 
